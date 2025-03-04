@@ -37,6 +37,13 @@
                                     <div class="btn-group">
                                         <button class="btn btn-primary btn-sm"
                                             onclick="openModal('{{ route('todo.show', $task->id) }}')">View</button>
+                                        <button class="btn btn-warning btn-sm"
+                                            onclick="openModal('{{ route('todo.edit', $task->id) }}')">Edit</button>
+                                        <form action="{{ route('todo.destroy', $task->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
