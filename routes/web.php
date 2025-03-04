@@ -24,6 +24,6 @@ Route::prefix('auth')->middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', DashBoardController::class)->name('dashboard');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
-    Route::resource('/todo', TaskController::class)->except('index');
+    Route::resource('/todo', TaskController::class)->except(['index']);
 });
 
